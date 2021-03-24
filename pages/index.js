@@ -446,6 +446,22 @@ export default function Home() {
                               </span>
                             </button>
                           ))}
+                          <button className="h-7 w-7 border border-gray-300 rounded-full flex items-center justify-center focus:outline-none">
+                            <svg
+                              className="h-4 w-4 "
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 5l7 7-7 7"
+                              />
+                            </svg>
+                          </button>
                         </div>
                       </div>
                       <div className="border-t">
