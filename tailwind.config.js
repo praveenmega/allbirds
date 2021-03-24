@@ -10,11 +10,12 @@ module.exports = {
       },
       colors: {
         lime: colors.lime,
+        coolgray: colors.coolGray,
       },
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
