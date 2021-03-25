@@ -16,6 +16,8 @@ export default function Home() {
       name: "Women's Wool Runner Mizzles",
       description:
         "Our weather-ready sneaker made with merino wool and puddle Guard",
+      preview:
+        "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_632,f_auto,q_auto,c_fill,ar_0.635814889336016/https://images.ctfassets.net/9uo1qvvet3xa/2SJ7oQMIoIBIzdlmOtAGkA/5e5808e1d641be343569a2c17246a110/SpringCore2020_Shot04_SavannaNight_WRM_0687.jpg",
       styles: [
         {
           name: "Natural Grey (Cream Sole)",
@@ -85,6 +87,8 @@ export default function Home() {
     {
       name: "Women's Tree Dashers",
       description: "Our running shoe designed with breathable tree material",
+      preview:
+        "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_632,f_auto,q_auto,c_fill,ar_0.635814889336016/https://images.ctfassets.net/9uo1qvvet3xa/37AjznKN1NGlmJfORFahMM/6746b9962e95ba718fda199e78124647/W_PCT_TD.jpg",
       styles: [
         {
           name: "Natural Grey (Cream Sole)",
@@ -154,6 +158,8 @@ export default function Home() {
     {
       name: "Women's Wool Runners",
       description: "Our original everyday sneaker made with cozy merino wool",
+      preview:
+        "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_632,f_auto,q_auto,c_fill,ar_0.635814889336016/https://images.ctfassets.net/9uo1qvvet3xa/7jibAjSf7qM5L6xqlLsLxA/b22f60b6db750f355bf04f0d74945946/Womens_WR-PCT.jpg",
       styles: [
         {
           name: "Natural Grey (Cream Sole)",
@@ -224,6 +230,8 @@ export default function Home() {
       name: "Women's Wool Dasher Mizzles",
       description:
         "Our weather-ready running shoe made with ZQ merino wool and puddle guard",
+      preview:
+        "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_632,f_auto,q_auto,c_fill,ar_0.635814889336016/https://images.ctfassets.net/9uo1qvvet3xa/2uQxW5KGZdfyo0MsfSi3W6/7821933447f0bcd2b053d042f6bae08a/WDM_Parent_Collection_Tile__1_.jpg",
       styles: [
         {
           name: "Natural Grey (Cream Sole)",
@@ -350,7 +358,7 @@ export default function Home() {
       </header>
       <main>
         <div>
-          <div className="flex items-center justify-between pt-4 pb-3 px-8">
+          <div className="flex items-center justify-between pt-4 pb-3 px-8 md:px-12">
             <div>
               <div className="text-xs font-semibold text-gray-900 space-x-1">
                 <a className="underline" href="#">
@@ -358,7 +366,7 @@ export default function Home() {
                 </a>
                 <span>/</span>
               </div>
-              <div className="text-lg text-gray-900 font-bold">
+              <div className="text-lg text-gray-900 font-bold md:text-xl">
                 <h1>Women's Shoes</h1>
               </div>
             </div>
@@ -382,7 +390,7 @@ export default function Home() {
             </div>
           </div>
           <div className="bg-gray-100 py-3 overflow-x-auto scrollbar-hidden">
-            <div className="px-8 text-sm inline-flex space-x-5">
+            <div className="px-8 md:px-12 text-sm inline-flex space-x-5">
               {categories.map((category, index) => (
                 <a
                   key={index}
@@ -395,95 +403,116 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <div className="py-6 px-8 space-y-14">
+            <div className="py-6 px-8 md:px-12 space-y-14">
               {products.map((product, index) => (
                 <div key={index}>
                   <div>
-                    <h2 className="text-lg font-semibold">{product.name}</h2>
+                    <h2 className="text-lg font-bold md:text-xl">
+                      {product.name}
+                    </h2>
                     <p className="text-sm text-gray-800">
                       {product.description}
                     </p>
                   </div>
-                  <div className="mt-4 shadow-xl">
-                    <div className="shadow-lg">
-                      <a href="#">
-                        <div>
-                          <img src={product.styles[0].image} alt="shoe" />
-                        </div>
-                        <div className="px-4 pt-3">
-                          <h3 className="text-sm font-semibold">
-                            {product.name}
-                          </h3>
-                          <p className="mt-1 text-sm text-gray-800">
-                            {product.styles[0].name}
+                  <div className="mt-4 md:grid md:grid-cols-2 md:gap-6 md:items-start">
+                    <div className="shadow-xl">
+                      <div className="shadow-lg">
+                        <a href="#">
+                          <div>
+                            <img
+                              className="w-full"
+                              src={product.styles[0].image}
+                              alt="shoe"
+                            />
+                          </div>
+                          <div className="px-4 pt-3">
+                            <h3 className="text-sm font-semibold">
+                              {product.name}
+                            </h3>
+                            <p className="mt-1 text-sm text-gray-800">
+                              {product.styles[0].name}
+                            </p>
+                          </div>
+                        </a>
+                        <div className="mt-1 px-4 pb-4">
+                          <p className="text-sm text-gray-800">
+                            {product.styles[0].price}
                           </p>
-                        </div>
-                      </a>
-                      <div className="mt-1 px-4 pb-4">
-                        <p className="text-sm text-gray-800">
-                          {product.styles[0].price}
-                        </p>
-                        <div className="mt-4 flex space-x-5">
-                          {product.styles.slice(0, 5).map((style, index) => (
-                            <button
-                              key={index}
-                              className={`h-6 w-6 flex flex-col border border-gray-300 rounded-full overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-900 ${
-                                index === 0
-                                  ? "ring-2 ring-offset-1 ring-gray-300"
-                                  : ""
-                              }`}
-                            >
-                              <span className="sr-only">{style.name}</span>
-                              <span className="h-full w-full flex flex-col transform -rotate-45">
-                                <span
-                                  className="h-3 w-6"
-                                  style={{ backgroundColor: style.colors[0] }}
-                                ></span>
-                                <span
-                                  className="h-3 w-6"
-                                  style={{ backgroundColor: style.colors[1] }}
-                                ></span>
-                              </span>
+                          <div className="mt-4 flex space-x-5">
+                            {product.styles.slice(0, 5).map((style, index) => (
+                              <button
+                                key={index}
+                                className={`h-6 w-6 flex flex-col border border-gray-300 rounded-full overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-900 ${
+                                  index === 0
+                                    ? "ring-2 ring-offset-1 ring-gray-300"
+                                    : ""
+                                }`}
+                              >
+                                <span className="sr-only">{style.name}</span>
+                                <span className="h-full w-full flex flex-col transform -rotate-45">
+                                  <span
+                                    className="h-3 w-6"
+                                    style={{ backgroundColor: style.colors[0] }}
+                                  ></span>
+                                  <span
+                                    className="h-3 w-6"
+                                    style={{ backgroundColor: style.colors[1] }}
+                                  ></span>
+                                </span>
+                              </button>
+                            ))}
+                            <button className="h-7 w-7 border border-gray-300 rounded-full flex items-center justify-center focus:outline-none">
+                              <svg
+                                className="h-4 w-4 "
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M9 5l7 7-7 7"
+                                />
+                              </svg>
                             </button>
-                          ))}
-                          <button className="h-7 w-7 border border-gray-300 rounded-full flex items-center justify-center focus:outline-none">
-                            <svg
-                              className="h-4 w-4 "
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M9 5l7 7-7 7"
-                              />
-                            </svg>
+                          </div>
+                        </div>
+                        <div className="border-t">
+                          <button className="px-4 py-2 text-sm w-full flex justify-between">
+                            <span className="font-semibold">Quick Add</span>
+                            <span>
+                              <svg
+                                className="h-6 w-6"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                                />
+                              </svg>
+                            </span>
                           </button>
                         </div>
                       </div>
-                      <div className="border-t">
-                        <button className="px-4 py-2 text-sm w-full flex justify-between">
-                          <span className="font-semibold">Quick Add</span>
-                          <span>
-                            <svg
-                              className="h-6 w-6"
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                              />
-                            </svg>
-                          </span>
-                        </button>
+                    </div>
+                    <div className="hidden md:block">
+                      <div className="relative">
+                        <img
+                          className="w-full"
+                          src={product.preview}
+                          alt="shoe preview"
+                        />
+                        <div className="absolute inset-0">
+                          <div className="absolute inset-0 top-1/2 bg-gradient-to-t from-gray-900 opacity-95"></div>
+                          <div></div>
+                        </div>
                       </div>
                     </div>
                   </div>
