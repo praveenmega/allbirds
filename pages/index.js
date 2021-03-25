@@ -16,6 +16,7 @@ export default function Home() {
       name: "Women's Wool Runner Mizzles",
       description:
         "Our weather-ready sneaker made with merino wool and puddle Guard",
+      quote: "Cozy Sneaker, Stormy Weather",
       preview:
         "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_632,f_auto,q_auto,c_fill,ar_0.635814889336016/https://images.ctfassets.net/9uo1qvvet3xa/2SJ7oQMIoIBIzdlmOtAGkA/5e5808e1d641be343569a2c17246a110/SpringCore2020_Shot04_SavannaNight_WRM_0687.jpg",
       styles: [
@@ -87,6 +88,7 @@ export default function Home() {
     {
       name: "Women's Tree Dashers",
       description: "Our running shoe designed with breathable tree material",
+      quote: "Supportive Design, Daily Run",
       preview:
         "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_632,f_auto,q_auto,c_fill,ar_0.635814889336016/https://images.ctfassets.net/9uo1qvvet3xa/37AjznKN1NGlmJfORFahMM/6746b9962e95ba718fda199e78124647/W_PCT_TD.jpg",
       styles: [
@@ -158,6 +160,7 @@ export default function Home() {
     {
       name: "Women's Wool Runners",
       description: "Our original everyday sneaker made with cozy merino wool",
+      quote: "Soft Feel, Cozy Material",
       preview:
         "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_632,f_auto,q_auto,c_fill,ar_0.635814889336016/https://images.ctfassets.net/9uo1qvvet3xa/7jibAjSf7qM5L6xqlLsLxA/b22f60b6db750f355bf04f0d74945946/Womens_WR-PCT.jpg",
       styles: [
@@ -230,6 +233,7 @@ export default function Home() {
       name: "Women's Wool Dasher Mizzles",
       description:
         "Our weather-ready running shoe made with ZQ merino wool and puddle guard",
+      quote: "Extra Grip, Stormy Weather",
       preview:
         "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_632,f_auto,q_auto,c_fill,ar_0.635814889336016/https://images.ctfassets.net/9uo1qvvet3xa/2uQxW5KGZdfyo0MsfSi3W6/7821933447f0bcd2b053d042f6bae08a/WDM_Parent_Collection_Tile__1_.jpg",
       styles: [
@@ -438,45 +442,69 @@ export default function Home() {
                           <p className="text-sm text-gray-800">
                             {product.styles[0].price}
                           </p>
-                          <div className="mt-4 flex space-x-5">
+                          <div className="mt-4 flex space-x-6 md:space-x-2">
                             {product.styles.slice(0, 5).map((style, index) => (
-                              <button
+                              <span
                                 key={index}
-                                className={`h-6 w-6 flex flex-col border border-gray-300 rounded-full overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-900 ${
-                                  index === 0
-                                    ? "ring-2 ring-offset-1 ring-gray-300"
-                                    : ""
-                                }`}
+                                className="md:flex-1 md:min-w-0 md:flex"
                               >
-                                <span className="sr-only">{style.name}</span>
-                                <span className="h-full w-full flex flex-col transform -rotate-45">
-                                  <span
-                                    className="h-3 w-6"
-                                    style={{ backgroundColor: style.colors[0] }}
-                                  ></span>
-                                  <span
-                                    className="h-3 w-6"
-                                    style={{ backgroundColor: style.colors[1] }}
-                                  ></span>
+                                <button
+                                  className={`h-6 w-6 flex flex-col border border-gray-300 rounded-full overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-900 ${
+                                    index === 0
+                                      ? "ring-2 ring-offset-1 ring-gray-300"
+                                      : ""
+                                  } md:rounded-none md:w-full md:aspect-w-1 md:aspect-h-1 md:border-0 ${
+                                    index === 0 ? "md:ring-0" : ""
+                                  }`}
+                                >
+                                  <span className="sr-only">{style.name}</span>
+                                  <span className="h-full w-full flex flex-col transform -rotate-45 md:hidden">
+                                    <span
+                                      className="h-3 w-6"
+                                      style={{
+                                        backgroundColor: style.colors[0],
+                                      }}
+                                    ></span>
+                                    <span
+                                      className="h-3 w-6"
+                                      style={{
+                                        backgroundColor: style.colors[1],
+                                      }}
+                                    ></span>
+                                  </span>
+                                  <span className="hidden md:w-full md:h-full md:flex">
+                                    <img src={style.image} />
+                                    <span
+                                      className={`absolute inset-0 ${
+                                        index === 0
+                                          ? "md:ring-1 md:ring-inset md:ring-offset-0 md:ring-gray-300"
+                                          : ""
+                                      }`}
+                                    ></span>
+                                  </span>
+                                </button>
+                              </span>
+                            ))}
+                            <span className="md:flex-1 md:min-w-0 md:flex">
+                              <button className="h-7 w-7 text-gray-600 border rounded-full flex items-center justify-center hover:border-gray-400 focus:outline-none md:aspect-w-1 md:aspect-h-1 md:w-full md:rounded-none">
+                                <span className="flex items-center justify-center">
+                                  <svg
+                                    className="h-4 w-4 md:h-6 md:w-6"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                  >
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth={2}
+                                      d="M9 5l7 7-7 7"
+                                    />
+                                  </svg>
                                 </span>
                               </button>
-                            ))}
-                            <button className="h-7 w-7 border border-gray-300 rounded-full flex items-center justify-center focus:outline-none">
-                              <svg
-                                className="h-4 w-4 "
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M9 5l7 7-7 7"
-                                />
-                              </svg>
-                            </button>
+                            </span>
                           </div>
                         </div>
                         <div className="border-t">
@@ -505,13 +533,17 @@ export default function Home() {
                     <div className="hidden md:block">
                       <div className="relative">
                         <img
-                          className="w-full"
+                          className=""
                           src={product.preview}
                           alt="shoe preview"
                         />
                         <div className="absolute inset-0">
                           <div className="absolute inset-0 top-1/2 bg-gradient-to-t from-gray-900 opacity-95"></div>
-                          <div></div>
+                          <div className="absolute inset-x-0 bottom-0">
+                            <p className="px-6 pb-6 font-bold text-white capitalize">
+                              {product.quote}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
